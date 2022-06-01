@@ -59,22 +59,15 @@ int fugaP2=0, passosFugaP2=passosParaFuga;
 
 /*--------------------------------------------------------------ESTRATÉGIAS-----------------------------------------------------------------//
 
-Agente 1 - Com uma matriz do tamanho do labirinto, mapeia os caminhos por onde passou
-e através da estratégia de busca em profundidade, vai empilhando o caminho por onde percorreu
-até encontrar um beco sem saída. Caso chegue nesse ponto, vai desempilhando até chegar em uma bifurcação
-e segue pelo caminho que ele ainda nao tenha passado, voltando a empilhar seus passos.
-
-Agente 2 - Com uma matriz do tamanho do labirinto, também mapeia por onde passou, porém acrescentando sempre
-uma unidade por onde passa. Dessa forma ele busca sempre se mover para onde o peso (quantidade de passos dados)
-do caminho disponível é menor, percorrendo então todo mapa
-
+Agentes 1 e 2: Ambos utilizam a mesma estratégia. Inicialmente é feita uma matriz do tamanho do mapa onde todas as posições sao setadas como 0.
+Sua posição atual é setada como 0 e é realizada uma busca por possiveis caminhos disponiveis e armazenados em um vetor. Então é chamada uma função
+para definir qual caminho o player deve seguir. Tal escolha é feita baseada na distância do player até a saída, caso ele ande nas direções 
+disponiveis. Para realizar tal decisão, o player 1 utiliza como escolha gulosa a menor distância euclidiana e o player 2 utiliza a menor distância
+de Manhattan. Antes de realmente dar um passo na direção escolhida, o player verifica se o minotauro está nela. Caso ele não esteja, o player se 
+move para tal direção e altera sua posição na matriz de posições para 1. Caso ele esteja, o player começa
+a desempilhar seus passos anteriores, retornando por onde veio e alterando a posição do mapa como 0 novamente, para que quando termine de dar os passos
+setados para fugir do minotauro, ele volte novamente a sua busca pela saida.
 //------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-
-
-
-
 
 
 
